@@ -1,5 +1,5 @@
 /**
- * Universal shared components for the Ration application
+ * Universal shared components for the Vault application
  * These components work for both personal and team projects
  */
 
