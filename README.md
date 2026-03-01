@@ -1,4 +1,4 @@
-# Ration (self-hostable)
+# Vault (self-hostable)
 
 An encrypted cloud platform for securely storing, syncing, and managing environment variables across all your projects and teams.
 
@@ -42,8 +42,8 @@ An encrypted cloud platform for securely storing, syncing, and managing environm
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/VA5UDEV/ration.git
-cd ration
+git clone https://github.com/VA5UDEV/vault.git
+cd vault
 ```
 
 2. Install dependencies:
@@ -61,7 +61,7 @@ cp .env.example .env.local
 4. Configure your database connection in `.env.local`:
 
 ```env
-DATABASE_URL="postgresql://username:password@localhost:5432/ration"
+DATABASE_URL="postgresql://username:password@localhost:5432/vault"
 ```
 
 5. Push the database schema:
@@ -94,7 +94,7 @@ The application will be available at `http://localhost:3000`.
 ### Project Structure
 
 ```
-ration/
+vault/
 ├── app/
 │   ├── (main)/
 │   │   ├── auth/          # Authentication pages
@@ -167,12 +167,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔗 Links
 
-- [GitHub Repository](https://github.com/VA5UDEV/ration)
-- [Issues](https://github.com/VA5UDEV/ration/issues)
+- [GitHub Repository](https://github.com/VA5UDEV/vault)
+- [Issues](https://github.com/VA5UDEV/vault/issues)
 
-## 💡 Why Ration?
+## 💡 Why Vault?
 
-Managing environment variables across multiple projects, environments, and team members can be challenging. Ration solves this by providing a secure, centralized platform where you can:
+Managing environment variables across multiple projects, environments, and team members can be challenging. Vault solves this by providing a secure, centralized platform where you can:
 
 - Store sensitive configuration data with enterprise-grade encryption
 - Easily share environment variables with team members
@@ -180,4 +180,4 @@ Managing environment variables across multiple projects, environments, and team 
 - Maintain version history and audit trails
 - Access your variables from anywhere with a simple, intuitive interface
 
-Built with modern web technologies and security best practices, Ration ensures your sensitive data remains protected while being easily accessible to authorized users.
+Built with modern web technologies and security best practices, Vault ensures your sensitive data remains protected while being easily accessible to authorized users.
