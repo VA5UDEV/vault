@@ -15,7 +15,7 @@ export default function Hero() {
       </div>
       <div className="flex items-center gap-4 sm:justify-center mt-10">
         <Button variant="outline" asChild>
-          <Link href="https://github.com/VA5UDEV/ration">View Repo</Link>
+          <Link href="https://github.com/VA5UDEV/vault">View Repo</Link>
         </Button>
         <Button>
           <Link href="/auth/login-or-create-account">Get Started</Link>
