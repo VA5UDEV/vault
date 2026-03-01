@@ -9,9 +9,6 @@ import { sendEmail } from "./email";
 
 export const auth = betterAuth({
   trustedOrigins: [
-    "https://www.ration.cloud",
-    "https://ration.cloud",
-    "https://rration.vercel.app",
     "http://localhost:3000",
   ],
   database: drizzleAdapter(db, {
@@ -24,7 +21,7 @@ export const auth = betterAuth({
     sendResetPassword: async ({ user, url }) => {
       await sendEmail({
         to: user.email,
-        subject: "Ration - Reset your password",
+        subject: "Vault - Reset your password",
         html: `Click the link to reset your password: ${url}`,
       });
     },
@@ -47,7 +44,7 @@ export const auth = betterAuth({
       const verificationUrl = `${process.env.BETTER_AUTH_URL}/api/auth/verify-email?token=${token}&callbackURL=${process.env.BETTER_AUTH_URL}/~/`;
       await sendEmail({
         to: user.email,
-        subject: "Ration - Verify your email address",
+        subject: "Vault - Verify your email address",
         html: `Click the link to verify your email: ${verificationUrl}`,
       });
     },
@@ -61,7 +58,7 @@ export const auth = betterAuth({
       sendDeleteAccountVerification: async ({ user, url, token }, request) => {
         await sendEmail({
           to: user.email,
-          subject: "Ration - Delete your account",
+          subject: "Vault - Delete your account",
           html: `Click the link to delete your account: ${url}`,
         });
       },
