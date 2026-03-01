@@ -10,7 +10,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Ration",
+  title: "Vault",
   description: "The Self-Hostable Environment Cloud For Personal & Teams.",
 };
 
