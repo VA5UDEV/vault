@@ -3,6 +3,7 @@ import { AvatarImage } from "@radix-ui/react-avatar";
 import { Home, UserPlus } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
 import { useAuthState } from "@/components/providers/auth-context";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { DialogTitle } from "@/components/ui/dialog";
@@ -48,14 +49,14 @@ export default function User() {
   return (
     <Slot modal>
       <SlotTrigger asChild>
-        <Avatar>
+        <Avatar className="cursor-pointer">
           <AvatarFallback>{auth?.data?.user?.name.slice(0, 2)}</AvatarFallback>
           <AvatarImage src={auth?.data?.user?.image as string} />
         </Avatar>
       </SlotTrigger>
       <SlotContent
         className={
-          !isMobile ? "mr-10 w-[250px] mt-2" : "px-4 pb-4 grid gap-5 text-sm"
+          !isMobile ? "mr-10 w-62.5 mt-2" : "px-4 pb-4 grid gap-5 text-sm"
         }
       >
         {isMobile && (
@@ -85,19 +86,14 @@ export default function User() {
           </SlotItem>
         </CreateTeam>
         <SlotSeparator className="hidden sm:flex" />
-        <SlotItem className="flex items-center justify-between">
-          Toggle Theme
-          <ThemeChanger
-            variant="ghost"
-            className="ml-auto p-0 h-4 w-4"
-            size="icon-sm"
-          />
-        </SlotItem>
-        <SlotItem asChild>
-          <Link href="/" className="flex items-center justify-between">
-            Homepage <Home className="size-4" />
-          </Link>
-        </SlotItem>
+        <div className="flex justify-center items-center gap-2">
+          <ThemeChanger variant="ghost" size="icon-sm" />
+          <Button variant="ghost" size="icon" aria-label="Submit">
+            <Link href="/">
+              <Home className="size-4" />
+            </Link>
+          </Button>
+        </div>
         <SlotSeparator className="hidden sm:flex" />
         <SlotItem
           onSelect={(e) => {
