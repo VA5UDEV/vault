@@ -12,6 +12,7 @@ import {
   Pickaxe,
   Radio,
   Trash2,
+  CircleArrowUp,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -92,14 +93,21 @@ export default function ProjectCard({
           : "flex items-center justify-between border-b-0 last:border-b hover:border-b",
       )}
     >
-      <div className="flex items-center justify-between w-full">
+      <div
+        className={cn(
+          "w-full",
+          viewType === "list"
+            ? "grid grid-cols-[1fr_auto_1fr] items-center"
+            : "flex items-start justify-between",
+        )}
+      >
         <div className="flex items-center gap-4">
           <Tooltip>
             <TooltipTrigger asChild>
               <Button
                 size="icon"
                 variant="secondary"
-                className="bg-secondary/40"
+                className="bg-secondary/40 border hover:border-foreground/20"
               >
                 <Icon className="size-4" />
               </Button>
@@ -127,10 +135,17 @@ export default function ProjectCard({
             )}
           </Link>
         </div>
-
+        {viewType === "list" && (
+          <div className="flex justify-center">
+            <Badge variant="outline">
+              <CircleArrowUp className="inline-start size-3" />
+              {project.type.charAt(0).toUpperCase() + project.type.slice(1)}
+            </Badge>
+          </div>
+        )}
         <div
           className={cn(
-            "flex items-center gap-1.5",
+            "flex items-center justify-end gap-1.5",
             viewType == "list" ? "mr-2" : "",
           )}
         >
@@ -164,7 +179,7 @@ export default function ProjectCard({
                   projectType={projectType}
                 >
                   <Button
-                    className="h-8 w-full justify-normal px-2! text-foreground/80"
+                    className="h-8 w-full justify-normal px-2! text-foreground/80 hover:text-foreground/90"
                     variant="ghost"
                   >
                     <Edit className="size-4! text-muted-foreground" /> Edit
@@ -175,9 +190,9 @@ export default function ProjectCard({
                 <DeleteProject slug={project.slug} projectType={projectType}>
                   <Button
                     variant="ghost"
-                    className="h-8 w-full justify-normal px-2! text-foreground/80"
+                    className="h-8 w-full justify-normal px-2! text-destructive/80 hover:text-destructive/90"
                   >
-                    <Trash2 className="size-4! text-muted-foreground" />
+                    <Trash2 className="size-4! text-red-400" />
                     Delete
                   </Button>
                 </DeleteProject>
@@ -187,12 +202,13 @@ export default function ProjectCard({
         </div>
       </div>
 
-      {viewType !== "list" && (
-        <div className="flex items-end justify-between -mb-2 mt-2">
-          <p className="text-[11px] text-foreground/80">
+      {viewType === "grid" && (
+        <div className="flex items-center justify-between pt-3 mt-3 border-t">
+          <p className="text-[11px] text-muted-foreground">
             Updated on {new Date(project.updatedAt).toDateString()}
           </p>
-          <Badge variant="secondary">
+          <Badge variant="outline">
+            <CircleArrowUp className="inline-start size-3" />
             {project.type.charAt(0).toUpperCase() + project.type.slice(1)}
           </Badge>
         </div>
