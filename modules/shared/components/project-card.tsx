@@ -182,7 +182,7 @@ export default function ProjectCard({
                     className="h-8 w-full justify-normal px-2! text-foreground/80 hover:text-foreground/90"
                     variant="ghost"
                   >
-                    <Edit className="size-4! text-muted-foreground" /> Edit
+                    <Edit className="size-4! text-foreground/80" /> Edit
                   </Button>
                 </ProjectSettings>
               </DropdownMenuItem>
@@ -192,7 +192,7 @@ export default function ProjectCard({
                     variant="ghost"
                     className="h-8 w-full justify-normal px-2! text-destructive/80 hover:text-destructive/90"
                   >
-                    <Trash2 className="size-4! text-red-400" />
+                    <Trash2 className="size-4! text-destructive/80" />
                     Delete
                   </Button>
                 </DeleteProject>
