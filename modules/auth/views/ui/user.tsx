@@ -1,6 +1,6 @@
 "use client";
 import { AvatarImage } from "@radix-ui/react-avatar";
-import { Home, UserPlus } from "lucide-react";
+import { Home, Settings, UserPlus } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -73,9 +73,6 @@ export default function User() {
         </div>
         <SlotSeparator className="hidden sm:flex" />
         <SlotItem onClick={switchDashboard}>Personal Dashboard</SlotItem>
-        <SlotItem asChild>
-          <Link href={`/~/me/settings`}>Account Settings</Link>
-        </SlotItem>
         <CreateTeam>
           <SlotItem
             onSelect={(e) => e.preventDefault()}
@@ -86,11 +83,30 @@ export default function User() {
           </SlotItem>
         </CreateTeam>
         <SlotSeparator className="hidden sm:flex" />
-        <div className="flex justify-center items-center gap-2">
-          <ThemeChanger variant="ghost" size="icon-sm" />
-          <Button variant="ghost" size="icon" aria-label="Submit">
+        <div className="flex justify-center items-center gap-2 py-1.5">
+          <ThemeChanger
+            variant="ghost"
+            size="icon-sm"
+            className="border border-muted"
+          />
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            aria-label="Submit"
+            className="border border-muted"
+          >
             <Link href="/">
               <Home className="size-4" />
+            </Link>
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            aria-label="Submit"
+            className="border border-muted"
+          >
+            <Link href={`/~/me/settings`}>
+              <Settings className="size-4" />
             </Link>
           </Button>
         </div>
